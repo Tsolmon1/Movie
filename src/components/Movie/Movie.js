@@ -7,6 +7,7 @@ import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import Actor from "../elements/Actor/Actor";
 import Spinner from "../elements/Spinner/Spinner";
 import "./Movie.css";
+import ShowBtn from "../elements/ShowBtn/ShowBtn";
 
 class Movie extends Component {
   state = {
@@ -68,6 +69,18 @@ class Movie extends Component {
       .catch((error) => console.error("Error:", error));
   };
 
+  loadMoreItems = () => {
+    // let endpoint = '';
+    // this.setState({ loading: true });
+
+    // if (this.state.searchTerm === '') {
+    //   endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
+    // } else {
+    //   endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.searchTerm}&page=${this.state.currentPage + 1}`;
+    // }
+    // this.fetchItems(endpoint);
+  }
+
   render() {
     return (
       <div className="rmdb-movie">
@@ -78,6 +91,7 @@ class Movie extends Component {
               movie={this.state.movie}
               directors={this.state.directors}
             />
+            <ShowBtn text="Үзэх" onClick={this.loadMoreItems} />
             <MovieInfoBar
               time={this.state.movie.runtime}
               budget={this.state.movie.budget}
